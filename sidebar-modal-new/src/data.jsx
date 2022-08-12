@@ -49,7 +49,7 @@ export const options = [
     },
 ];
 
-export const socials = [
+export const socialIcons = [
     {
         id: 1,
         url: '#',

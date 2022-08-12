@@ -1,5 +1,7 @@
 import React from 'react'
-import {useState, useRef} from 'react'
+import {useState, useRef, useContext} from 'react'
+
+const ModalContext = useContext()
 
 const Modal = (props) => {
     const [isShowModal, setIsShowModal] = useState(false)
@@ -16,14 +18,15 @@ const Modal = (props) => {
     }
 
     return (
-        <>
-         <ModalButton showModal={showModal} />
-         {isShowModal && <ModalSection closeModal={closeModal}/>}
-        </>   
+        <ModalContext.provider value={{showModal, closeModal}}>
+         <ModalButton />
+         {isShowModal && <ModalSection/>}
+        </ModalContext.provider>   
     )
 }
 
-const ModalButton = ({showModal}) => {
+const ModalButton = () => {
+    const {showModal} = useContext(ModalContext)
     return (
         <div className='h-screen w-screen flex items-center justify-center'>
             <button className='w-32 h-10 text-white bg-black rounded' onClick={showModal} >SHOW MODAL</button>
@@ -31,7 +34,8 @@ const ModalButton = ({showModal}) => {
     )
 }
 
-const ModalSection = ({closeModal}) => {
+const ModalSection = () => {
+    const {closeModal} = useContext(ModalContext)
     return (
         <section className='w-full px-7 h-2/6 scale-110 absolute z-10'>
             <div className=' flex items-center justify-center bg-white h-full w-full rounded'>
