@@ -3,6 +3,7 @@ import phoneImg from './images/phone.svg';
 import { useGlobalContext } from './context';
 
 const Hero = () => {
+  console.log(useGlobalContext().openSidebar) 
   const { closeSubmenu } = useGlobalContext();
   return (
     <section className='hero' onMouseOver={closeSubmenu}>

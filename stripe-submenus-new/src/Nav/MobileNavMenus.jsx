@@ -1,9 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { mainNavOptions } from '../data';
+import { useGlobalContext } from '../context';
 
-const MobileNavMenus = ({navOptions, closeNav}) => {
+
+const MobileNavMenus = () => {
+     const [navOptions, setNavOptions] = useState(mainNavOptions);
+
+    // const {closeNav} = useGlobalContext()
     return (
         <div className='bg-white h-[90%] absolute flex flex-col top-5 w-[90%] px-[5%] py-3 md:hidden'>
-            <h2 className='text-pText font-bold text-4xl h-12 self-end cursor-pointer' onClick={closeNav}>x</h2>
+            <h2 className='text-pText font-bold text-4xl h-12 self-end cursor-pointer' /*onClick={closeNav}*/>x</h2>
             {navOptions.map(option => {
                 const {id, name, url, optionSubMenus} = option;
                 return (

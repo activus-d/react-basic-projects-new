@@ -1,7 +1,32 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { mainNavOptions } from '../data';
 
-const DesktopNavMenu = ({navOptions, showMenu, hideMenu}) => {
+// import { useGlobalContext } from '../Context';
+
+const DesktopNavMenu = () => {
+    const [navOptions, setNavOptions] = useState(mainNavOptions);
+    const showMenu = (e) => {
+        e.preventDefault();
+        const menuContainer = e.target.parentNode.parentNode
+        const children = Array.from(menuContainer.children)
+        children[children.length - 1].style.display = 'block'
+        // children[children.length - 1].style.transform = 'translateX(0%)'
+        // console.log(children[children.length - 1])
+    };
+
+    const hideMenu = (e) => {
+        e.preventDefault();
+        const menuContainer = e.target.parentNode.parentNode
+        const children = Array.from(menuContainer.children)
+        // children[children.length - 1].style.transform = 'translateX(30%)'
+        children[children.length - 1].style.display = 'none'
+    };
+
+    // const {showMenu, hideMenu} = useGlobalContext()
+    // console.log(showMenu)
     return (
+    
+
         <div className='hidden md:flex justify-evenly basis-3/5 z-[2]'>
             {navOptions.map(option => {
                 const {id, name, url, optionSubMenus} = option;
