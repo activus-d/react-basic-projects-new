@@ -4,24 +4,25 @@ import NavHeading from './NavHeading';
 import MobileNavMenus from './MobileNavMenus';
 import DesktopNavMenu from './DesktopNavMenu';
 import SignIn from './SignIn';
+import { NavProvider } from '../context';
 import { useGlobalContext } from '../context';
-
-// const {isNavOpen,closeNav} = useNavContext()
 
 
 
 const Nav = (props) => {
-//    const bet = useGlobalContext()
-    console.log(useGlobalContext())
+   const {isNavOpen,closeNav} = useGlobalContext()
+   console.log(isNavOpen)
 
     return (
         <>
-            <nav className='mb-7 md:flex md:justify-between items-center overflow-hidden md:w-full'>
-                {/* <NavHeading/> */}
-                {/* {isNavOpen && <MobileNavMenus/>}  */}
-                <DesktopNavMenu/>
-                <SignIn />
-            </nav>
+            <NavProvider>
+                <nav className='mb-7 md:flex md:justify-between items-center overflow-hidden md:w-full'>
+                    {/* <NavHeading/> */}
+                    {<MobileNavMenus/>} 
+                    <DesktopNavMenu/>
+                    <SignIn />
+                </nav>
+            </NavProvider>
         </>
     )
 }
