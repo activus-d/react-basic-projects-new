@@ -10,7 +10,7 @@ const Footer = () => {
                     Total
                 </h3>
                 <h3 className='text-[20px] font-bold'>
-                    {`$${totalPrice}`}
+                    {`$${totalPrice()}`}
                 </h3>
             </div>
             <button 

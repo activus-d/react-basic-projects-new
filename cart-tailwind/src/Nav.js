@@ -2,8 +2,7 @@ import React from 'react'
 import { useGlobalContext } from './context'
 
 const NavBar = () => {
-    const {itemsInCart, isScroll, dispatch} = useGlobalContext()
-    console.log(dispatch)
+    const {itemsInCart, isScroll} = useGlobalContext()
     return <nav className={`flex justify-between bg-[#2680c0] h-16 align items-center px-7 ${isScroll ? 'fixed w-screen top-0' : 'absolute top-0 w-screen'}`} >
         <h2 className='text-white font-bold text-2xl'>
             UseReducer
@@ -16,7 +15,7 @@ const NavBar = () => {
             />
             </svg>
             <div className=' flex justify-center items-center rounded-[12px] bg-[#85c6f4] absolute w-7 h-7 top-[0] left-7'>
-                <p className='text-white font-bold'>{itemsInCart}</p>
+                <p className='text-white font-bold'>{itemsInCart()}</p>
             </div>
         </div>
     </nav>

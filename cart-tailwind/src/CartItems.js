@@ -6,7 +6,7 @@ const CartItems = () => {
     const {items, removeItem, increaseAmount, decreaseAmount} = useGlobalContext();
     // console.log(items)
     return <>
-        {items.map((item) => {
+        {items().map((item) => {
             const {id, title, price, img, amount} = item
             return (
                 <div key={id} className='flex items-center mb-3 justify-between'>

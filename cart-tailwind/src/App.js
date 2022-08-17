@@ -9,13 +9,13 @@ import {useGlobalContext} from './context'
 
 function App() {
   const {isLoadingPage, removeLoadingpage, fixNav} = useGlobalContext()
-  
+  // console.log(removeLoadingpage, isLoadingPage)
   useEffect(() => {
     window.addEventListener('load', removeLoadingpage)
     return () => {
       window.removeEventListener('load', removeLoadingpage)
     }
-  }, []);
+  }, [removeLoadingpage]);
 
   useEffect(() => {
     window.addEventListener('scroll', fixNav)
@@ -24,17 +24,20 @@ function App() {
     }
   })
 
-  if(isLoadingPage) {
+  if(isLoadingPage()) {
     return <LoadingPage />
   }
-
-  return (
+  if(!isLoadingPage()) {
+    return (
     <div className=''>
       <NavBar />
       <CartContainer />
       <Footer />
     </div>
   )
+}
+
+  
 }
 
 export default App;
