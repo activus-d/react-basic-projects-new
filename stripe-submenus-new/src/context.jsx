@@ -6,7 +6,6 @@ const NavProvider = ({children}) => {
     const [isMenuIcon, setIsMenuIcon] = useState(false);
     const [isNavOpen, setIsNavOpen] = useState(false);
 
-
     const showNav = () => {
         setIsNavOpen(() => {
             return true
@@ -24,8 +23,6 @@ const NavProvider = ({children}) => {
             return true
         })
     };
-
-    
 
     return (
         <NavContext.Provider 
