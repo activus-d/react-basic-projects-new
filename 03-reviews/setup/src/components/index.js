@@ -22,7 +22,6 @@ const Reviews = () => {
 
     const handleNext = () => {
         const id = person.id
-        // const currentPerson = person
         if(id >= 1) {
             if(id !== 4) {
                 const newPerson = people.filter(person => person.id === Number(id) + 1)
@@ -37,7 +36,6 @@ const Reviews = () => {
         const id = person.id
         const randomPersonIndex = Math.round((Math.random() / 1) * 3)
         setPerson(people[randomPersonIndex])
-        // console.log(Math.round(randomPersonIndex))
     };
 
     return (
