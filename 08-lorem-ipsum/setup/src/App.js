@@ -6,10 +6,12 @@ function App() {
   
   const generateResult = (e) => {
     e.preventDefault()
-    data.splice(0, data.length - value)
-    setLoremData(() => {
-      return data
-    })
+    if(value == 8) {
+      setLoremData(data)
+    } else {
+      const newData = data.slice(0, value)
+      setLoremData(newData)
+    }
   };
 
   return (
@@ -32,8 +34,8 @@ function App() {
       </section>
       <section className='section-center'>
         <ul>
-          {loremData.map(text => {
-            const id = new Date().getTime().toString()
+          {loremData.map((text, index, arr) => {
+            const id = index
             return(
               <li key={id} className='result'>{text}</li>
             )
