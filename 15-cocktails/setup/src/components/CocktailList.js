@@ -3,10 +3,15 @@ import Cocktail from './Cocktail'
 import Loading from './Loading'
 import { useGlobalContext } from '../context'
 
-const CocktailList = () => {
+const CocktailList = ({cocktails}) => {
+  console.log(cocktails)
   return (
-    <div>
-      <h2>cocktail list component</h2>
+    <div className="cocktails-center">
+      {cocktails.map(cocktail => {
+        return (
+          <Cocktail cocktail={cocktail}/>
+        )
+      })}
     </div>
   )
 }

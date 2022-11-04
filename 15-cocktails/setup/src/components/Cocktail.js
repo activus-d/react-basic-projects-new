@@ -1,10 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Cocktail = () => {
+const Cocktail = ({cocktail}) => {
   return (
-    <div>
-      <h2>cocktail component</h2>
+    <div className="cocktail">
+      <div className=''>
+        <img src={cocktail.strDrinkThumb} />
+      </div>
+      <div className='cocktail-footer'>
+        <h2>{cocktail.strDrink}</h2>
+        <h5>{cocktail.strGlass}</h5>
+        <p>{cocktail.strAlcoholic}</p>
+        <button className='btn-primary btn-details '>Details</button>
+      </div>
     </div>
   )
 }

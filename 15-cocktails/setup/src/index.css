@@ -254,8 +254,8 @@ Cocktail
 .cocktail-footer {
   padding: 1.5rem;
 }
-.cocktail-footer h3,
-.cocktail-footer h4,
+.cocktail-footer h2,
+.cocktail-footer h5,
 .cocktail-footer p {
   margin-bottom: 0.3rem;
 }
