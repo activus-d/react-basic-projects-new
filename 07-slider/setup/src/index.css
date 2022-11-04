@@ -162,6 +162,7 @@ Slider
   text-align: center;
   position: relative;
   display: flex;
+  flex-direction: column;
   /* overflow: hidden; */
 }
 .person-img {
@@ -242,13 +243,13 @@ article {
   /* opacity: 0; */
   transition: var(--transition);
 }
-/* article.activeSlide {
+article.activeSlide {
   opacity: 1;
   transform: translateX(0);
 }
 article.lastSlide {
-  transform: translateX(-100%);
+  transform: translateX(-150%);
 }
 article.nextSlide {
-  transform: translateX(100%);
-} */
+  transform: translateX(150%);
+}
